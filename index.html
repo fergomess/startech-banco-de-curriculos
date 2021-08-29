@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobsNET</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<header>
+    <div id="logo">
+        <img src="./image/jobslogo.png" width="200" alt="Logo">
+    </div>
+    <div>
+        <h1>Banco de Currículos</h1>
+    </div>
+    <ul>
+        <li>
+            <a>Home</a>
+        </li>
+        <li>
+            <a>Entrar</a>
+        </li>
+        <li>
+            <a>Cadastre-se</a>
+        </li>
+    </ul>
+</header>
+
+<form id="container" onsubmit="return check_form()"> 
+
+    <div class="bloco">
+        <div>
+            <label>Nome Completo </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="text" name="nome" id="nomecompleto" class="invalidInput" required />
+        </div>
+    </div>
+    <div class="bloco">
+        <div id="dataNascimento" class="invalidInput">
+            <label for="DataNascimento">Data de Nascimento </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="date" name="data" id="dtnascimento" class="invalidInput" required />
+            <span id="erroNascimento" style="display: none;">Preencher Campo</span>
+
+        </div>
+    </div>    
+    <div class="bloco">
+        <div>
+            <label for="estadoCivil">Estado Civil</label><span class="preenchimentoObrigatorio">*</span><br>
+            <select name="estadoCivil" id="estadoCivil">
+                <option value="Solteiro(a)">Solteiro(a)</option>
+                <option value="Casado(a)">Casado(a)</option>
+                <option value="Divorciado(a)">Divorciado(a)</option>
+                <option value="Viúvo(a)">Viúvo(a)</option>
+            </select>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label for="genero">Gênero</label><span class="preenchimentoObrigatorio">*</span><br>
+            <select name="genero" id="genero">
+                <option value=""></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Prefiro não informar">Prefiro não informar</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <div>
+            <label>Identidade </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="number" placeholder="Informe somente números" class="invalidInput" name="identidade" id="identidade" required><br>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label>CPF </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="number" maxlength="11" placeholder="Informe somente números" class="invalidInput" name="cpf" id="cpf" required><br>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <div>
+            <label>Celular </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="text" name="celular" id="celular" required>
+        </div>
+    </div>
+    <div class="bloco">
+        <div id="erroBlocoEmail">
+            <label for="email">Email</label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="email" name="email" id="email" required><br>
+            <span id="erroEmail" style="display: none;">Email inválido</span>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <div id="erroBlocoCEP">
+            <label>CEP </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input name="cep" id="cep" type="number" min="8" placeholder="Informe somente números" class="invalidInput" required><br>
+            <span id="erroCEP" style="display: none;" role="alert">CEP inválido</span>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label for="estado">Estado </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="text" name="estado" id="estado" required>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label>Cidade </label id="cidade"><span class="preenchimentoObrigatorio">*</span><br>
+            <input name="cidade" id="cidade" type="text" required>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label>Endereço</label><br>
+            <input type="text" name="endereco" id="endereco" required>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <div>
+            <label>Bairro </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="text" name="bairro" id="bairro" required><br>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label for="estado">Logradouro </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input type="text" name="logradouro" id="logradouro" required>
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label>Profissão </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input id="profissao" type="text" />
+        </div>
+    </div>
+    <div class="bloco">
+        <div>
+            <label>Informe o Cargo ao qual deseja se candidatar </label><span class="preenchimentoObrigatorio">*</span><br>
+            <input id="cargo" type="text" />
+        </div>
+    </div>
+    
+    <div><button type="submit" id="enviar" onclick="check_form()">ENVIAR CURRÍCULO</button></div>
+</form>
+<script src="./script/script.js"></script>
+
+</html>
